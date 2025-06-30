@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tanvir Ahmad - CV</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #7879b8;
+            --secondary: #353439;
+            --accent: #06b6d4;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: linear-gradient(135deg, #24293f 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .cv-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            animation: slideIn 0.8s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 60px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="20" cy="80" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="80" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+            animation: float 20s infinite linear;
+        }
+        
+        @keyframes float {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .header-left h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 8px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        
+        .header-left .tagline {
+            font-size: 1.4rem;
+            color: rgba(255,255,255,0.9);
+            font-weight: 300;
+            margin-bottom: 30px;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: white;
+            font-size: 0.95rem;
+        }
+        
+        .contact-icon {
+            width: 20px;
+            height: 20px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+        }
+        
+        .header-right {
+            text-align: center;
+        }
+        
+        .avatar {
+            width: 140px;
+            height: 140px;
+            background: linear-gradient(135deg, var(--accent), var(--success));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            font-weight: 700;
+            margin-bottom: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .quote {
+            background: rgba(255,255,255,0.15);
+            padding: 20px;
+            border-radius: 16px;
+            font-style: italic;
+            color: white;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            min-height: 800px;
+        }
+        
+        .sidebar {
+            background: var(--light);
+            padding: 40px;
+            border-right: 1px solid #e2e8f0;
+        }
+        
+        .content-area {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 24px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 20px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+        
+        .skill-grid {
+            display: grid;
+            gap: 24px;
+        }
+        
+        .skill-category {
+            background: white;
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .skill-category h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 12px;
+        }
+        
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .skill-tag {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: transform 0.2s ease;
+        }
+        
+        .skill-tag:hover {
+            transform: scale(1.05);
+        }
+        
+        .education-item {
+            background: white;
+            padding: 24px;
+            border-radius: 16px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid var(--accent);
+            transition: all 0.3s ease;
+        }
+        
+        .education-item:hover {
+            transform: translateX(4px);
+            box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .degree {
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+        
+        .institution {
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+        
+        .edu-year {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+        
+        .grade {
+            background: var(--success);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: inline-block;
+        }
+        
+        .experience-timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--primary), var(--secondary));
+        }
+        
+        .experience-item {
+            position: relative;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 25px -8px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        
+        .experience-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -8px rgba(0, 0, 0, 0.15);
+        }
+        
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -45px;
+            top: 30px;
+            width: 16px;
+            height: 16px;
+            background: var(--primary);
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 0 0 4px var(--light);
+        }
+        
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        
+        .company {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 4px;
+        }
+        
+        .position {
+            font-size: 1.1rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .location {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-top: 4px;
+        }
+        
+        .duration {
+            background: linear-gradient(135deg, var(--accent), var(--success));
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        
+        .projects {
+            display: grid;
+            gap: 16px;
+        }
+        
+        .project {
+            background: var(--light);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent);
+            transition: all 0.3s ease;
+        }
+        
+        .project:hover {
+            background: #f1f5f9;
+            transform: translateX(4px);
+        }
+        
+        .project-name {
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+        
+        .project-tech {
+            background: var(--warning);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-right: 8px;
+        }
+        
+        .project-desc {
+            color: var(--gray);
+            margin-top: 8px;
+            line-height: 1.5;
+        }
+        
+        .summary-card {
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .summary-card p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--dark);
+        }
+        
+        .achievements {
+            display: grid;
+            gap: 16px;
+        }
+        
+        .achievement {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid var(--success);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .achievement:hover {
+            transform: translateX(4px);
+            box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .achievement::before {
+            content: '✨';
+            margin-right: 12px;
+            font-size: 1.2rem;
+        }
+        
+        .print-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            box-shadow: 0 10px 25px -3px rgba(99, 102, 241, 0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .print-btn:hover {
+            transform: translateY(-4px) scale(1.1);
+            box-shadow: 0 20px 40px -3px rgba(99, 102, 241, 0.5);
+        }
+        
+        @media print {
+            body { 
+                background: white !important; 
+                padding: 0;
+            }
+            .cv-container { 
+                box-shadow: none; 
+                border-radius: 0;
+                max-width: none;
+            }
+            .print-btn { display: none; }
+            .header::before { display: none; }
+            .avatar { animation: none; }
+        }
+        
+        @media (max-width: 1024px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            .header-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 30px;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            .header { padding: 40px 20px; }
+            .sidebar, .content-area { padding: 20px; }
+            .header-left h1 { font-size: 2.5rem; }
+            .experience-timeline { padding-left: 0; }
+            .experience-timeline::before { display: none; }
+            .experience-item::before { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-container">
+        <header class="header">
+            <div class="header-content">
+                <div class="header-left">
+                    <h1>TANVIR AHMAD</h1>
+                    <p class="tagline">Senior Full Stack Developer & Software Engineering Expert</p>
+                    
+                    <div class="contact-grid">
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <span>Badda, Dhaka, Bangladesh</span>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📱</div>
+                            <span>+880 1855 769094</span>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📧</div>
+                            <span>satanvir5@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">💼</div>
+                            <span>eng-tanvir-ahmad</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="header-right">
+                    <div class="avatar">TA</div>
+                    <div class="quote">
+                        "Nothing is impossible, try harder until achieved the goal."
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <aside class="sidebar">
+                <section class="section">
+                    <h2 class="section-title">Technical Skills</h2>
+                    <div class="skill-grid">
+                        <div class="skill-category">
+                            <h3>Backend & Frameworks</h3>
+                            <div class="skill-tags">
+                                <span class="skill-tag">PHP</span>
+                                <span class="skill-tag">Laravel</span>
+                                <span class="skill-tag">Java Spring Boot</span>
+                                <span class="skill-tag">CodeIgniter</span>
+                                <span class="skill-tag">October CMS</span>
+                                <span class="skill-tag">CakePHP</span>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h3>Frontend Technologies</h3>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Vue.js</span>
+                                <span class="skill-tag">JavaScript</span>
+                                <span class="skill-tag">TypeScript</span>
+                                <span class="skill-tag">Alpine.js</span>
+                                <span class="skill-tag">Inertia.js</span>
+                                <span class="skill-tag">jQuery</span>
+                                <span class="skill-tag">HTML5</span>
+                                <span class="skill-tag">CSS3</span>
+                                <span class="skill-tag">Bootstrap</span>
+                                <span class="skill-tag">Tailwind</span>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h3>Database & DevOps</h3>
+                            <div class="skill-tags">
+                                <span class="skill-tag">MySQL</span>
+                                <span class="skill-tag">Oracle</span>
+                                <span class="skill-tag">Git</span>
+                                <span class="skill-tag">REST APIs</span>
+                                <span class="skill-tag">Linux</span>
+                                <span class="skill-tag">Server Management</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Education</h2>
+                    
+                    <div class="education-item">
+                        <div class="degree">Bachelor of Computer Science & Engineering</div>
+                        <div class="institution">International Islamic University Chittagong</div>
+                        <div class="edu-year">2016 - 2020</div>
+                        <div class="grade">CGPA: 3.601</div>
+                    </div>
+                    
+                    <div class="education-item">
+                        <div class="degree">Higher Secondary Certificate</div>
+                        <div class="institution">Birshreshtha Munshi Abdur Rouf Public College</div>
+                        <div class="edu-year">2013 - 2015</div>
+                        <div class="grade">GPA: 4.75</div>
+                    </div>
+                    
+                    <div class="education-item">
+                        <div class="degree">Secondary School Certificate</div>
+                        <div class="institution">Tamirul Millat Kamil Madrasah</div>
+                        <div class="edu-year">2012 - 2013</div>
+                        <div class="grade">GPA: 5.00</div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Certifications</h2>
+                    
+                    <div class="education-item">
+                        <div class="degree">Laravel Framework Certification</div>
+                        <div class="institution">PANDIT Online</div>
+                        <div class="edu-year">Jan - Mar 2020</div>
+                        <div class="grade">3 Months</div>
+                    </div>
+                    
+                    <div class="education-item">
+                        <div class="degree">Skills for Employment Program</div>
+                        <div class="institution">BASIS ICT Division</div>
+                        <div class="edu-year">May - Jul 2018</div>
+                        <div class="grade">Completed</div>
+                    </div>
+                </section>
+            </aside>
+
+            <main class="content-area">
+                <section class="section">
+                    <h2 class="section-title">Professional Summary</h2>
+                    <div class="summary-card">
+                        <p>Innovative Senior Software Engineer with 5+ years of comprehensive experience in full-stack development, specializing in enterprise-level applications across banking, e-commerce, and government sectors. Expert in modern web technologies with a proven track record of delivering scalable, secure solutions that drive business growth and operational efficiency.</p>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Professional Experience</h2>
+                    <div class="experience-timeline">
+                        
+                        <div class="experience-item">
+                            <div class="job-header">
+                                <div>
+                                    <div class="company">Enroute Digital</div>
+                                    <div class="position">Senior Software Engineer</div>
+                                    <div class="location">Dhaka, Bangladesh</div>
+                                </div>
+                                <div class="duration">Jan 2025 - Present</div>
+                            </div>
+                            <div class="projects">
+                                <div class="project">
+                                    <div class="project-name">Alpha Islami Life Insurance Web Application</div>
+                                    <span class="project-tech">Laravel Filament</span>
+                                    <div class="project-desc">Architected comprehensive Admin Panel with seamless management capabilities. Designed and implemented robust APIs for Policy Holder, Employee, and Agent Management systems, ensuring data integrity and optimal performance.</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="experience-item">
+                            <div class="job-header">
+                                <div>
+                                    <div class="company">Techneo360 Ltd.</div>
+                                    <div class="position">Software Engineer</div>
+                                    <div class="location">Mirpur-1, Dhaka</div>
+                                </div>
+                                <div class="duration">Feb 2024 - Dec 2024</div>
+                            </div>
+                            <div class="projects">
+                                <div class="project">
+                                    <div class="project-name">Edison Express Courier Management</div>
+                                    <span class="project-tech">Core PHP</span>
+                                    <div class="project-desc">Developed comprehensive international courier system with seamless Emirates and Paperfly API integrations for global shipping operations.</div>
+                                </div>
+                                <div class="project">
+                                    <div class="project-name">E-commerce Platform</div>
+                                    <span class="project-tech">CodeIgniter</span> <span class="project-tech">Vue.js</span>
+                                    <div class="project-desc">Built full-stack e-commerce solution with Stripe payment gateway integration, advanced SEO optimization, and responsive frontend design.</div>
+                                </div>
+                                <div class="project">
+                                    <div class="project-name">POS ERP System</div>
+                                    <span class="project-tech">Laravel</span>
+                                    <div class="project-desc">Implemented comprehensive Point of Sale system with integrated accounting, inventory management, and automated billing features.</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="experience-item">
+                            <div class="job-header">
+                                <div>
+                                    <div class="company">Meghna Bank Ltd.</div>
+                                    <div class="position">Assistant Officer - Software Engineer</div>
+                                    <div class="location">Gulshan-1, Dhaka</div>
+                                </div>
+                                <div class="duration">Apr 2022 - Jan 2024</div>
+                            </div>
+                            <div class="projects">
+                                <div class="project">
+                                    <div class="project-name">Internet Banking Platform</div>
+                                    <span class="project-tech">Java Spring Boot</span>
+                                    <div class="project-desc">Led development of secure internet banking system with middleware services, API migrations, and EKPAY integration for utility payments.</div>
+                                </div>
+                                <div class="project">
+                                    <div class="project-name">Unified Collection System</div>
+                                    <span class="project-tech">Java Spring Boot</span>
+                                    <div class="project-desc">Built scalable OTC platform for bill collections with comprehensive REST API architecture handling millions in daily transactions.</div>
+                                </div>
+                                <div class="project">
+                                    <div class="project-name">Banking Solutions Suite</div>
+                                    <span class="project-tech">PHP Laravel</span>
+                                    <div class="project-desc">Developed E-Learning Platform, E-Locker Security System, E-Statement Generation, Customer Complaint Management, and Automated Remittance Processing.</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="experience-item">
+                            <div class="job-header">
+                                <div>
+                                    <div class="company">Tappware Solutions Ltd.</div>
+                                    <div class="position">Junior Software Engineer</div>
+                                    <div class="location">Paltan, Dhaka</div>
+                                </div>
+                                <div class="duration">Aug 2020 - Feb 2022</div>
+                            </div>
+                            <div class="projects">
+                                <div class="project">
+                                    <div class="project-name">Government Report Management System</div>
+                                    <span class="project-tech">PHP Laravel</span>
+                                    <div class="project-desc">Created centralized database platform for government offices with dynamic report generation and automated compilation features.</div>
+                                </div>
+                                <div class="project">
+                                    <div class="project-name">Digital Audit Archive</div>
+                                    <span class="project-tech">PHP Laravel</span>
+                                    <div class="project-desc">Digitized audit file management system with advanced categorization and objection report tracking capabilities.</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Key Achievements</h2>
+                    <div class="achievements">
+                        <div class="achievement">Successfully delivered 20+ enterprise applications across banking, e-commerce, and government sectors</div>
+                        <div class="achievement">Led development of critical banking systems processing millions in daily transactions</div>
+                        <div class="achievement">Implemented secure payment gateways and API integrations for multiple high-traffic platforms</div>
+                        <div class="achievement">Optimized system performance resulting in 40% faster load times and improved user experience</div>
+                        <div class="achievement">Mentored 5+ junior developers and established coding standards for development teams</div>
+                        <div class="achievement">Participated in prestigious tech events including Banglalink SDG Hackathon 2020</div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <button class="print-btn" onclick="window.print()" title="Print CV">🖨️</button>
+
+    <script>
+        // Add smooth scroll and interaction effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate skill tags on hover
+            const skillTags = document.querySelectorAll('.skill-tag');
+            skillTags.forEach(tag => {
+                tag.addEventListener('mouseenter', function() {
+                    this.style.background = 'linear-gradient(135deg, #8b5cf6, #06b6d4)';
+                });
+                tag.addEventListener('mouseleave', function() {
+                    this.style.background = 'linear-gradient(135deg, var(--primary), var(--secondary))';
+                });
+            });
+
+            // Add print functionality
+            document.addEventListener('keydown', function(e) {
+                if (e.ctrlKey && e.key === 'p') {
+                    e.preventDefault();
+                    window.print();
+                }
+            });
+
+            // Intersection Observer for animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
